@@ -1,3 +1,3 @@
-## containers
+## prod containers
 
-This repo is created to learn docker and docker-compose config.
+This branch contains production ready Dockerfile config.
