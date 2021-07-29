@@ -6,4 +6,4 @@ dockerfile for https://github.com/docker-hy/backend-example-docker
 `docker build -t <name> .`
 
 ### run container with
-`docker run --mount type=mount,src="$(pwd)"/logs.txt,dst=/app/logs.txt -p 8000:8000 <name>`
+`docker run --mount type=bind,src="$(pwd)"/logs.txt,dst=/app/logs.txt -p 8000:8000 <name>`
