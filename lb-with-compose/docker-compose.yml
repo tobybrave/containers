@@ -6,7 +6,7 @@ services:
   nginx-webserver:
     image: nginx
     volumes:
-      - ./index.html:/usr/share/html/index.html
+      - ./index.html:/usr/share/nginx/html/index.html
     environment:
       - VIRTUAL_HOST=web.colasloth.com
   lb:
