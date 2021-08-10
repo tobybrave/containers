@@ -1,0 +1,19 @@
+services:
+  container-id:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=whoami.colasloth.com
+  nginx-webserver:
+    image: nginx
+    volumes:
+      - ./index.html:/usr/share/html/index.html
+    environment:
+      - VIRTUAL_HOST=web.colasloth.com
+  lb:
+    image: jwilder/nginx-proxy
+    ports:
+      - 8000:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      
+version: '3.5'
