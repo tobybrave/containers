@@ -1,19 +1,28 @@
+
 version: '3.5'
 
 services:
-  frexdoc:
+
+  frontend:
     image: tobybrave/frexdoc
     container_name: frexdoc
-    ports: 
+    ports:
       - 5000:5000
     build: ../frontend-example-docker
     environment:
-      - API_URL=https://2886795315-8000-elsy06.environments.katacoda.com # katacoda port
-  beexdoc:
+      - API_URL=https://2886795276-8000-simba10.environments.katacoda.com # katacoda varying port
+      
+  backend:
     image: tobybrave/beexdoc
     container_name: beexdoc
     ports:
       - 8000:8000
     build: .
     environment:
-      - FRONT_URL=https://2886795315-5000-elsy06.environments.katacoda.com # katacoda port
+      - FRONT_URL=https://2886795279-5000-ollie07.environments.katacoda.com # katacoda varying port
+      - REDIS=cache
+      - REDIS_PORT=6379
+  
+  cache:
+    image: redis
+    container_name: redis_cache
